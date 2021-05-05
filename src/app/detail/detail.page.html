@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>商品详情</ion-title>
+    <ion-button slot="end" fill="clear">
+      <ion-icon name="cart"></ion-icon>
+    </ion-button>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="res">
+  <ion-content *ngIf="res">
+    <ion-item>
+      <ion-label>产品型号: {{res.details.lname}}</ion-label>
+    </ion-item>
+
+    <ion-slides pager 
+      [options]="{loop:true,autoplay:{disableOnInteraction:false}}">
+      <ion-slide *ngFor="let item of res.details.picList">
+       <img [src]="baseUrl+item.lg" alt="">
+      </ion-slide>
+    </ion-slides>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>{{res.details.title}}</ion-card-subtitle>
+        <ion-card-title>{{res.details.subtitle}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-item>
+          <ion-label color="danger">￥{{res.details.price}}</ion-label>
+          <ion-button color=danger slot="end">
+            <ion-icon name="cart"></ion-icon>
+            <ion-text>添加到购物车</ion-text>
+          </ion-button>
+        </ion-item>
+        <ion-item>
+          <ion-label>CPU:{{res.details.cpu}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>内存:{{res.details.memory}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>硬盘:{{res.details.disk}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>系统:{{res.details.os}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <!--  <ion-label>是单行的，所以需要改-->
+          <ion-text>承诺: {{res.details.promise}}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>显卡: {{res.details.video_card}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>显存: {{res.details.video_memory}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>上市时间: {{res.details.shelf_time|date:"yyyy-MM-dd"}}</ion-label>
+        </ion-item>
+
+        <ion-text [innerHTML]="transHTML(res.details.details)"></ion-text>
+      </ion-card-content>
+
+    </ion-card>
+  
+</ion-content>
+
+<!-- 
+details: "<div class="content_tpl"> <div class="formwork">   <div class="formwork_img"><br></div><div class="formwork_img">    <img alt="" class="" src="img/product/detail/57b15612N81dc489d.jpg">   </div>  </div>  <div class="formwork">   <div class="formwork_img">    <img alt="" class="" src="//img20.360buyimg.com/vc/jfs/t2683/60/4222930118/169462/233c7678/57b15616N1e285f09.jpg">   </div>  </div>  <div class="formwork">   <div class="formwork_text">    技术规格请前往 www.apple.com/cn/macbook-air/specs.html 查看完整内容。</div></div></div>" -->

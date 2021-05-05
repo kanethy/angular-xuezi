@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>用户登录</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <ion-label>用户名：</ion-label>
+      <ion-input type="text" placeholder="请输入用户名" [(ngModel)]="uname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>密&nbsp;&nbsp;&nbsp;码：</ion-label>
+      <ion-input type="password" placeholder="请输入密码" [(ngModel)]="upwd"></ion-input>
+    </ion-item>
+  </ion-card>
+  
+  <ion-button expand="block" (click)="doLogin()">登录</ion-button>
+
+  <h5>其他登录方式：</h5>
+  <div>
+    <ion-button color="danger">
+      <ion-icon name="logo-angular"></ion-icon>
+    </ion-button>
+    <ion-button color="warning">
+      <ion-icon name="logo-javascript"></ion-icon>
+    </ion-button>
+    <ion-button color="success">
+      <ion-icon name="logo-npm"></ion-icon>
+    </ion-button>
+    <ion-button color="primary">
+      <ion-icon name="logo-github"></ion-icon>
+    </ion-button>
+    <ion-button color="secondary">
+      <ion-icon name="logo-twitter"></ion-icon>
+    </ion-button>
+    <ion-button color="tertiary">
+      <ion-icon name="logo-html5"></ion-icon>
+    </ion-button>
+  </div>
+</ion-content>

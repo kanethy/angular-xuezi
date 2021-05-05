@@ -1,0 +1,12 @@
+@charset "UTF-8";
+​
+ion-content {
+  --padding-top: 15px;
+  --padding-start: 15px;
+  --padding-end: 15px;
+}
+
+div ion-button {
+  margin-left: 8px;
+}
+/*# sourceMappingURL=tab4.page.css.map */

@@ -1,17 +1,36 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-searchbar placeholder="Search" slot="start"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content *ngIf="res">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)" >
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+ <ion-card>
+   <!-- detail 属性 ——右边的箭头 -->
+   <!-- button 属性——有点击效果 -->
+   <!-- item本身是对象类型，所有router时直接填item就可以 -->
+   <ion-item *ngFor="let item of res.data" detail button [routerLink]="['/detail',item]">
+     <!-- 缩略图 -->
+     <ion-thumbnail>
+       <img [src]="baseUrl+item.pic"/>
+     </ion-thumbnail>
+     <ion-label>
+        <h3>{{item.title}}</h3>
+        <p>{{item.price}}</p>
+     </ion-label>
+     <ion-button >查看详情</ion-button>
+    </ion-item>
+ </ion-card>
+
+ <!-- [disabled]="res.pno==res.pageCount"时不再刷新 -->
+ <ion-infinite-scroll (ionInfinite)="loadData($event)" [disabled]="res.pno==res.pageCount">
+   <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="更新中...">
+   </ion-infinite-scroll-content>
+ </ion-infinite-scroll>
+
+ <ion-button *ngIf="res.pno==res.pageCount" disabled expand="block">没有更多数据</ion-button>
 </ion-content>

@@ -1,0 +1,18 @@
+ion-card {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+ion-item {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+ion-thumbnail img {
+  padding-right: 5px;
+}
+
+ion-label p {
+  color: red;
+}
+/*# sourceMappingURL=tab2.page.css.map */

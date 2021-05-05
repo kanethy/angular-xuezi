@@ -1,0 +1,14 @@
+// https://ionicframework.com/docs/api/content#css-custom-properties
+​
+// 官方对 ion-content标签提供了自定义属性
+// sass 写法
+
+ion-content {
+    --padding-top: 15px;
+    --padding-start: 15px;
+    --padding-end: 15px;
+  }
+
+div ion-button{
+    margin-left: 8px;
+}
